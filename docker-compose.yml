@@ -1,0 +1,43 @@
+ version: '3.9'
+ services:
+   nginx-node-docker1:
+     build: ./node_app/.
+     hostname: nginx-node-docker1
+     environment:
+       - APP_NAME=nginx-node-docker1
+       - PORT=3001
+     ports:
+       - "3001:3001"
+       
+   nginx-node-docker2:
+     build: ./node_app/.
+     hostname: nginx-node-docker3
+     environment:
+       - APP_NAME=nginx-node-docker3
+       - PORT=3002
+     ports:
+       - "3002:3002"
+
+   nginx-node-docker3:
+     build: ./node_app/.
+     hostname: nginx-node-docker3
+     environment:
+       - APP_NAME=nginx-node-docker3
+       - PORT=3003
+     ports:
+       - "3003:3003"
+
+   nginx:
+     build: ./nginx/.
+     ports:
+       - "80:80"
+     depends_on:
+       - nginx-node-docker1
+      
+    
+
+#docker-compose up --build -d
+
+#for this example we will run 3 containers
+#each container will have a different APP_NAME
+#the APP_NAME will be used to display the name of the app in the browser
