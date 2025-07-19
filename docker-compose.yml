@@ -11,9 +11,9 @@
        
    nginx-node-docker2:
      build: ./node_app/.
-     hostname: nginx-node-docker3
+     hostname: nginx-node-docker2
      environment:
-       - APP_NAME=nginx-node-docker3
+       - APP_NAME=nginx-node-docker2
        - PORT=3002
      ports:
        - "3002:3002"

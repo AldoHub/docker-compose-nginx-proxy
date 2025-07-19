@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000; // this env will be set in the docker-com
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
+  console.log(`----------- Serving by ${APP_NAME}`);
   res.sendFile(path.join(__dirname, 'public/index.html'));
-  console.log(`Serving by ${APP_NAME}`);
 });
 
 app.listen(port, () => {
